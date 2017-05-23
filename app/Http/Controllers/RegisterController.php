@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 
 class RegisterController extends Controller
 {
 	public function getRegister() {
-		return view('admin.login');
+		$customer = new Customer;
+		return view('register', ['customer' => $customer]);
 	}
 
-	public function postRegister() {
-		return 'Login';
+	public function postRegister(Customer $customer) {
+		return $customer;
 	}
 }

@@ -19,6 +19,9 @@
 	    <![endif]-->
     </head>
     <body>
+        <div class="page-header">
+            <h1>Things Tracker</h1>
+        </div>
         <div class="container">
             @yield('content')
         </div>
