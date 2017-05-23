@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['prefix'=>'/', 'middleware' => 'auth'], function() {
+	Route::get('/', function() {
+		return 'Hola!';
+	});
 });
+
+
+Route::get('login', ['as' => 'admin.login', 'uses' => 'Admin\SessionController@getLogin']);
+Route::post('login', ['uses' => 'Admin\SessionController@postLogin']);
+
+Route::get('registration', ['as' => 'register', 'uses' => 'RegisterController@getRegister']);
+Route::post('registration', ['uses' => 'RegisterController@postRegister']);	
