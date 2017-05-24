@@ -12,9 +12,18 @@
 */
 
 
-Route::group(['prefix'=>'/', 'middleware' => 'auth'], function() {
-	Route::get('/', function() {
-		return 'Hola!';
+Route::group(['prefix'=>'api'/*, 'middleware' => 'auth'*/], function() {
+	Route::group(['prefix' => 'customers'], function() {
+		Route::get('/', ['as' => 'api.customers.all', 'uses' => 'Api\CustomersController@getAll']);
+		Route::group(['prefix' => '{customer}'], function() {
+			Route::get('/', ['as' => 'api.customers.all', 'uses' => 'Api\CustomersController@getCustomer']);
+
+			Route::get('locations', ['as' => 'api.customer.locations', 'uses' => 'Api\LocationsController@getCustomerLocations']);
+			Route::get('locations/{location}', ['as' => 'api.customer.location', 'uses' => 'Api\LocationsController@getCustomerLocation']);
+
+			Route::get('devices', ['as' => 'api.customer.devices', 'uses' => 'Api\DevicesController@getCustomerDevices']);
+			Route::get('devices/{device}', ['as' => 'api.customer.devices', 'uses' => 'Api\DevicesController@getCustomerDevice']);
+		});
 	});
 });
 
