@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['prefix'=>'api'/*, 'middleware' => 'auth'*/], function() {
+Route::group(['prefix'=>'api', 'middleware' => 'auth:api'], function() {
 	Route::group(['prefix' => 'customers'], function() {
 		Route::get('/', ['as' => 'api.customers.all', 'uses' => 'Api\CustomersController@getAll']);
 		Route::group(['prefix' => '{customer}'], function() {
@@ -27,9 +27,7 @@ Route::group(['prefix'=>'api'/*, 'middleware' => 'auth'*/], function() {
 	});
 });
 
-
-Route::get('login', ['as' => 'admin.login', 'uses' => 'Admin\SessionController@getLogin']);
-Route::post('login', ['uses' => 'Admin\SessionController@postLogin']);
+Route::post('api/token', ['uses' => 'Api\SessionController@postLogin']);
 
 Route::get('registration', ['as' => 'register', 'uses' => 'RegisterController@getRegister']);
 Route::post('registration', ['uses' => 'RegisterController@postRegister']);	

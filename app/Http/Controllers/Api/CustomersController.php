@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Organization;
+use Auth;
 
 class CustomersController extends Controller
 {
@@ -36,6 +37,8 @@ class CustomersController extends Controller
 	}
 
 	public function getAll() {
+		//echo str_random(256);
+		//echo Auth::guard('api')->user();
 		return Customer::all();
 	}
 
