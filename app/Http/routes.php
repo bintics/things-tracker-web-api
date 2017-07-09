@@ -32,3 +32,13 @@ Route::post('api/registry', ['uses' => 'RegisterController@postExternalRegistry'
 
 Route::get('registration', ['as' => 'register', 'uses' => 'RegisterController@getRegister']);
 Route::post('registration', ['uses' => 'RegisterController@postRegister']);
+
+
+
+Route::post('api/test', {
+	return ['method' => 'post','name' => 'name-test', 'access_token' => 'token-test'];
+});
+
+Route::get('api/test', {
+	return ['method' => 'get','name' => 'name-test', 'access_token' => 'token-test'];
+});
