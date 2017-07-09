@@ -35,10 +35,10 @@ Route::post('registration', ['uses' => 'RegisterController@postRegister']);
 
 
 
-Route::post('api/test', {
+Route::post('api/test', function () {
 	return ['method' => 'post','name' => 'name-test', 'access_token' => 'token-test'];
 });
 
-Route::get('api/test', {
+Route::get('api/test', function () {
 	return ['method' => 'get','name' => 'name-test', 'access_token' => 'token-test'];
 });
