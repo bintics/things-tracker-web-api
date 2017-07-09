@@ -15,4 +15,8 @@ class RegisterController extends Controller
 	public function postRegister(Customer $customer) {
 		return $customer;
 	}
+
+	public function postExternalRegistry(Customer $customer) {
+		return $customer;
+	}
 }

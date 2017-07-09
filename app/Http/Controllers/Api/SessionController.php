@@ -20,6 +20,6 @@ class SessionController extends Controller
 				return $customer;
 			}
 		}
-		return response(403);
+		return response('Unauthorized.', 401);
 	}
 }
