@@ -34,11 +34,6 @@ Route::get('registration', ['as' => 'register', 'uses' => 'RegisterController@ge
 Route::post('registration', ['uses' => 'RegisterController@postRegister']);
 
 
-
-Route::post('api/test', function () {
-	return ['method' => 'post','name' => 'name-test', 'access_token' => 'token-test'];
-});
-
-Route::get('api/test', function () {
-	return ['method' => 'get','name' => 'name-test', 'access_token' => 'token-test'];
+Route::get('/', function () {
+	return 'Thinks Tracker API v';
 });

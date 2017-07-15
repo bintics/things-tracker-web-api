@@ -31,11 +31,15 @@ class Customer extends Authenticatable
     }
 
     public function locations() {
-        return $this->hasMany('App\Models\TrackingLocation', 'custumer_id', 'id');
+        return $this->hasMany('App\Models\TrackingLocation', 'customer_id', 'id');
     }
 
     public function devices() {
-        return $this->hasMany('App\Models\Device', 'custumer_id', 'id');
+        return $this->hasMany('App\Models\Device', 'customer_id', 'id');
+    }
+
+    public function details() {
+        return $this->hasOne('App\Models\CustomerDetail', 'customer_id', 'id');
     }
 
 }
