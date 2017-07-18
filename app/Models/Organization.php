@@ -14,7 +14,7 @@ class Organization extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'alias'
+        'name',
     ];
 
     public function customers() {

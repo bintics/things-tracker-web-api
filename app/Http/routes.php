@@ -28,10 +28,7 @@ Route::group(['prefix'=>'api', 'middleware' => 'auth:api'], function() {
 });
 
 Route::post('api/token', ['uses' => 'Api\SessionController@postLogin']);
-Route::post('api/registry', ['uses' => 'RegisterController@postExternalRegistry']);
-
-Route::get('registration', ['as' => 'register', 'uses' => 'RegisterController@getRegister']);
-Route::post('registration', ['uses' => 'RegisterController@postRegister']);
+Route::post('api/registry', ['uses' => 'Api\RegisterController@postExternalRegistry']);
 
 
 Route::get('/', function () {
